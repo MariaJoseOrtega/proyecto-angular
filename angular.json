@@ -5,7 +5,11 @@
   "projects": {
     "proyecto-angular": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -98,7 +102,8 @@
       }
     }
   },
+  "defaultProject": "proyecto-angular",
   "cli": {
-    "analytics": "2a493a3a-53e4-4f96-b512-bf4db0d8cd63"
+    "analytics": "2bc3c2a5-0a8a-4700-8a8a-3c070bcbdb4a"
   }
 }

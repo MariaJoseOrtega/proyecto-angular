@@ -1,5 +1,6 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ProductHttpService } from 'src/app/services/product-http.service';
 
 @Component({
   selector: 'app-product',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private httpClient:HttpClient) {
+  constructor(private productHttpService:ProductHttpService) {
    }
 
   ngOnInit(): void {
@@ -18,9 +19,19 @@ export class ProductComponent implements OnInit {
     //this.updateProduct();
     this.deleteProduct();
   }
+  getAll(){
+    const url = `${this.API_URL}`;
+    return this.httpClient.get(url);
+  }
+  getOne(id: number) {
+    const url = `${this.API_URL}/${id}`;
+    return this.httpClient.get(url);
+    this.httpClient.
+
+  }
   getProducts() {
     const url = "http://api.escuelajs.co/api/v1/products";
-    this.httpClient.get(url).subscribe(
+    this.productHttpService.getAll(url).subscribe(
     response => {
       console.log(response);    }
   ); }
